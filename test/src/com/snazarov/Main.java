@@ -8,13 +8,16 @@ public class Main {
 
     public static void main(String[] args) {
 
-        long weekDays = calcWeekDays(LocalDate.now(), LocalDate.parse("2018-02-28"));
+        System.out.println(String.format("excessiveMoney = %d",
+                        calcExcessiveMoney(3932, LocalDate.parse("2018-02-28"))));
+    }
+
+    private static long calcExcessiveMoney(final long remainderMoney, final LocalDate end) {
+
+        long weekDays = calcWeekDays(LocalDate.now(), end);
         System.out.println(String.format("weekdays = %d", weekDays));
 
-        long remainderMoney = 3932;
-        long excessiveMoney  = remainderMoney - weekDays * 390;
-
-        System.out.println(String.format("excessiveMoney = %d", excessiveMoney));
+        return remainderMoney - weekDays * 390;
     }
 
     private static long calcWeekDays(final LocalDate start, final LocalDate end) {
